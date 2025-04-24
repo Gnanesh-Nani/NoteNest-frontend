@@ -1,6 +1,6 @@
-# 🖥️ Notes Web App – Frontend (React)
+# 🖥️ NoteNest – Frontend (React)
 
-This is the frontend of the full-stack **Notes Web App** built using **React**. Users can sign up, sign in, and manage their notes with due dates and completion tracking.
+This is the frontend of the full-stack **NoteNest* built using **React**. Users can sign up, sign in, and manage their notes with due dates and completion tracking.
 
 ---
 
