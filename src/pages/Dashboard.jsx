@@ -38,7 +38,7 @@ const Dashboard = () => {
     } catch (err) {
       console.error(err);
     }
-  }
+  };
 
   useEffect(() => {
     fetchNotes();
@@ -129,14 +129,17 @@ const Dashboard = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-blue-100 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-purple-200 via-blue-300 to-green-300 animate-gradient p-6">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-4xl font-extrabold text-gray-800">My Notes 📚</h1>
+        <h1 className="text-4xl font-extrabold text-gray-800 hover:scale-105 transition-transform duration-300">
+          My Notes 📚
+        </h1>
         <button
           onClick={handleLogout}
-          className="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-full shadow-md"
+          className="relative group bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-full shadow-md overflow-hidden"
         >
-          Logout
+          <span className="absolute inset-0 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+          <span className="relative">Logout</span>
         </button>
       </div>
 
@@ -160,7 +163,7 @@ const Dashboard = () => {
         </select>
         <button
           onClick={openAddModal}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-3 rounded-lg shadow-md"
+          className="bg-blue-500 hover:bg-blue-600 text-white px-5 py-3 rounded-lg shadow-md transition-transform transform hover:scale-105"
         >
           + New Note
         </button>
@@ -171,7 +174,7 @@ const Dashboard = () => {
         {filteredNotes.map((note, idx) => (
           <div
             key={note._id}
-            className={`p-5 rounded-xl shadow-md transition-transform transform hover:scale-105 ${
+            className={`p-5 rounded-xl shadow-md transition-transform transform hover:scale-105 hover:rotate-1 hover:translate-y-1 ${
               cardColors[idx % cardColors.length]
             } ${note.completed ? 'opacity-50 line-through' : ''}`}
           >
@@ -218,11 +221,11 @@ const Dashboard = () => {
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
             leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
           >
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
